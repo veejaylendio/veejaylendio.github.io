@@ -6,52 +6,110 @@
 <title>Veejay Lendio Portfolio</title>
 
 <style>
-    body {
+    * {
         margin: 0;
+        padding: 0;
+        box-sizing: border-box;
         font-family: Arial, sans-serif;
-        background: radial-gradient(circle at top, #111827, #05070f);
-        color: white;
+    }
+
+    body {
+        background: radial-gradient(circle at top, #0f172a, #05070f);
+        color: #fff;
         overflow-x: hidden;
     }
 
-    .container {
-        max-width: 1000px;
-        margin: 60px auto;
+    /* HEADER */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+        padding: 15px 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    header h1 {
+        font-size: 18px;
+        letter-spacing: 2px;
+        color: #60a5fa;
+    }
+
+    nav a {
+        color: #d1d5db;
+        margin-left: 20px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    nav a:hover {
+        color: #60a5fa;
+    }
+
+    /* HERO */
+    .hero {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        flex-direction: column;
         padding: 20px;
     }
 
-    .header {
-        text-align: center;
-        margin-bottom: 50px;
-        animation: fadeIn 1s ease-in-out;
+    .hero h2 {
+        font-size: 48px;
+        animation: fadeDown 1s ease;
     }
 
-    .header h1 {
-        font-size: 42px;
-        margin: 0;
-        letter-spacing: 2px;
-    }
-
-    .header p {
+    .hero p {
+        margin-top: 10px;
         color: #9ca3af;
+        max-width: 600px;
+        animation: fadeUp 1.2s ease;
     }
 
-    .grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 20px;
+    .btn {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background: #2563eb;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        background: #1d4ed8;
+    }
+
+    /* SECTIONS */
+    section {
+        max-width: 1000px;
+        margin: auto;
+        padding: 80px 20px;
+    }
+
+    .section-title {
+        font-size: 24px;
+        color: #60a5fa;
+        margin-bottom: 20px;
     }
 
     /* GLASS CARD */
     .card {
-        background: rgba(255, 255, 255, 0.07);
-        border: 1px solid rgba(255, 255, 255, 0.12);
+        background: rgba(255,255,255,0.06);
+        border: 1px solid rgba(255,255,255,0.1);
         backdrop-filter: blur(12px);
         border-radius: 15px;
         padding: 20px;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        margin-bottom: 20px;
 
-        /* animation base */
         opacity: 0;
         transform: translateY(40px);
         transition: all 0.8s ease;
@@ -62,123 +120,125 @@
         transform: translateY(0);
     }
 
-    h2 {
-        color: #60a5fa;
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-
-    p, li {
-        color: #d1d5db;
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    ul {
-        padding-left: 18px;
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
     }
 
     .tag {
         display: inline-block;
         background: rgba(59,130,246,0.2);
         padding: 5px 10px;
-        margin: 4px;
         border-radius: 8px;
         font-size: 12px;
+        margin: 4px;
     }
 
-    .contact a {
-        color: #60a5fa;
-        text-decoration: none;
+    /* FOOTER */
+    footer {
+        text-align: center;
+        padding: 30px;
+        color: #6b7280;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 40px;
     }
 
-    /* fade header */
-    @keyframes fadeIn {
+    /* ANIMATIONS */
+    @keyframes fadeDown {
         from { opacity: 0; transform: translateY(-20px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .footer {
-        text-align: center;
-        margin-top: 40px;
-        color: #6b7280;
-        font-size: 13px;
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- HEADER -->
+<header>
+    <h1>VEEJAY</h1>
+    <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
 
-    <div class="header">
-        <h1>VEEJAY LENDIO</h1>
-        <p>Virtual Assistant • Aspiring Web Developer</p>
-    </div>
-
-    <div class="grid">
-
-        <div class="card">
-            <h2>Profile</h2>
-            <p>I have gained valuable experience across multiple industries over the past few years, consistently excelling in each role. I thrive on challenges and deliver effective solutions.</p>
-        </div>
-
-        <div class="card contact">
-            <h2>Contact</h2>
-            <p>📞 +63 935 866 5909</p>
-            <p>📧 <a href="mailto:lendioveejay@gmail.com">lendioveejay@gmail.com</a></p>
-            <p>📍 Iligan City, Philippines</p>
-            <p>🔗 <a href="https://www.linkedin.com/in/veejay-lendio/" target="_blank">LinkedIn</a></p>
-        </div>
-
-        <div class="card">
-            <h2>Skills</h2>
-            <span class="tag">Project Management</span>
-            <span class="tag">Public Relations</span>
-            <span class="tag">Teamwork</span>
-            <span class="tag">Time Management</span>
-            <span class="tag">Critical Thinking</span>
-            <span class="tag">Web Development</span>
-            <span class="tag">Organization</span>
-        </div>
-
-        <div class="card">
-            <h2>Work Experience</h2>
-            <p><b>Fame - B2B Podcast Agency</b> (2023–2025)</p>
-            <p>Project Manager – Managed podcast projects and teams.</p>
-
-            <p><b>Automated E-Com IT Solution</b> (2019–2021)</p>
-            <p>Operations Manager – Oversaw operations and quality control.</p>
-
-            <p><b>Projects Experts VA</b> (2022–2023)</p>
-            <p>Operations Manager – Managed workflows and execution.</p>
-        </div>
-
-        <div class="card">
-            <h2>Education</h2>
-            <p><b>Mindanao State University - Iligan Institute of Technology</b></p>
-            <p>BS Industrial Automation and Mechatronics (2015–2020)</p>
-        </div>
-
-        <div class="card">
-            <h2>Languages</h2>
-            <ul>
-                <li>English</li>
-                <li>Tagalog</li>
-                <li>Cebuano</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <div class="footer">
-        Built with HTML • Animated Glass UI • Developer Portfolio
-    </div>
-
+<!-- HERO -->
+<div class="hero">
+    <h2>Hi, I'm Veejay Lendio</h2>
+    <p>Virtual Assistant • Project Manager • Aspiring Web Developer</p>
+    <button class="btn" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+        Explore My Portfolio
+    </button>
 </div>
 
+<!-- ABOUT -->
+<section id="about">
+    <h2 class="section-title">About Me</h2>
+    <div class="card">
+        I have gained valuable experience across multiple industries over the past few years, consistently excelling in each role. I thrive on challenges and deliver effective solutions as I transition into web development.
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+    <div class="card">
+        <span class="tag">Project Management</span>
+        <span class="tag">Public Relations</span>
+        <span class="tag">Teamwork</span>
+        <span class="tag">Time Management</span>
+        <span class="tag">Critical Thinking</span>
+        <span class="tag">Web Development</span>
+        <span class="tag">Organization</span>
+    </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+    <h2 class="section-title">Experience</h2>
+
+    <div class="card">
+        <b>Fame - B2B Podcast Agency</b> (2023–2025)
+        <p>Project Manager – Managed podcast projects, teams, and deliverables.</p>
+    </div>
+
+    <div class="card">
+        <b>Automated E-Com IT Solution</b> (2019–2021)
+        <p>Operations Manager – Oversaw operations and quality control.</p>
+    </div>
+
+    <div class="card">
+        <b>Projects Experts VA</b> (2022–2023)
+        <p>Operations Manager – Managed workflows and execution.</p>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+    <h2 class="section-title">Contact</h2>
+    <div class="card">
+        📞 +63 935 866 5909<br/>
+        📧 lendioveejay@gmail.com<br/>
+        📍 Iligan City, Philippines<br/>
+        🔗 LinkedIn: linkedin.com/in/veejay-lendio
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    © 2026 Veejay Lendio • Built with HTML • Animated Portfolio
+</footer>
+
+<!-- ANIMATION SCRIPT -->
 <script>
-    // Scroll animation
     const cards = document.querySelectorAll('.card');
 
     const observer = new IntersectionObserver(entries => {
