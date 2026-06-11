@@ -1,383 +1,232 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Veejay Lendio Portfolio</title>
+
+<title>Modern Portfolio</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
-body {
-    background: radial-gradient(circle at top, #0f172a, #05070f);
-    color: #fff;
-    overflow-x: hidden;
-}
-
-/* HEADER */
-header {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(0,0,0,0.4);
-    backdrop-filter: blur(10px);
-    padding: 15px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-}
-
-header h1 {
-    font-size: 18px;
-    letter-spacing: 2px;
-    color: #60a5fa;
-}
-
-nav a {
-    color: #d1d5db;
-    margin-left: 20px;
-    text-decoration: none;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #60a5fa;
-}
-
-/* HERO */
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 420px 1fr;
-    align-items: center;
-    padding: 120px 60px;
-    overflow: hidden;
-}
-
-/* glow */
-.glow {
-    position: absolute;
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, rgba(37,99,235,0.25), transparent 60%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    filter: blur(60px);
-}
-
-/* badge */
-.hero-badge {
-    position: absolute;
-    top: 110px;
-    left: 60px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 18px;
-    background: rgba(255,255,255,0.08);
-    border-radius: 50px;
-    font-size: 14px;
-}
-
-.dot {
-    width: 8px;
-    height: 8px;
-    background: #22c55e;
-    border-radius: 50%;
-}
-
-/* LEFT */
-.hero-left h1 {
-    font-size: clamp(2.5rem, 5vw, 5rem);
-    line-height: 1.1;
-}
-
-/* IMAGE */
-.hero-image {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.image-frame {
-    width: 380px;
-    height: 520px;
-    padding: 10px;
-    border-radius: 25px;
-    background: rgba(255,255,255,0.06);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.15);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    transition: 0.4s;
-}
-
-.image-frame:hover {
-    transform: translateY(-10px) scale(1.02);
-}
-
-.image-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 20px;
-}
-
-/* RIGHT */
-.hero-right {
-    display: flex;
-    flex-direction: column;
-    gap: 25px;
-}
-
-.hero-right p {
-    color: #d1d5db;
-    line-height: 1.8;
-    font-size: 16px;
-}
-
-.hero-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    background: #2563eb;
-    color: white;
-    text-decoration: none;
-    padding: 14px 22px;
-    border-radius: 50px;
-    width: fit-content;
-    transition: 0.3s;
-}
-
-.hero-btn:hover {
-    background: #1d4ed8;
-    transform: translateY(-3px);
-}
-
-.hero-btn span {
-    width: 32px;
-    height: 32px;
-    background: white;
-    color: #2563eb;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-}
-
-/* BIG BACK TEXT */
-.hero-name {
-    position: absolute;
-    bottom: -40px;
-    left: 40px;
-    font-size: 14vw;
-    color: rgba(255,255,255,0.05);
-    font-weight: bold;
-    pointer-events: none;
-}
-
-/* SECTIONS */
-section {
-    max-width: 1000px;
-    margin: auto;
-    padding: 80px 20px;
-}
-
-.section-title {
-    font-size: 24px;
-    color: #60a5fa;
-    margin-bottom: 20px;
-}
-
-/* CARD */
-.card {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(12px);
-    border-radius: 15px;
-    padding: 20px;
-    margin-bottom: 20px;
-
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-/* TAGS */
-.tag {
-    display: inline-block;
-    background: rgba(59,130,246,0.2);
-    padding: 5px 10px;
-    border-radius: 8px;
-    font-size: 12px;
-    margin: 4px;
-}
-
-/* FOOTER */
-footer {
-    text-align: center;
-    padding: 30px;
-    color: #6b7280;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    margin-top: 40px;
-}
-
-/* ANIMATION HELPERS */
+/* subtle fade animation */
 .reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
 }
-
 .reveal.show {
-    opacity: 1;
-    transform: translateY(0);
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.delay-1 { transition-delay: 0.2s; }
-.delay-2 { transition-delay: 0.4s; }
-.delay-3 { transition-delay: 0.6s; }
+/* magnetic button */
+.magnetic {
+  transition: transform 0.2s ease;
+}
+
+/* soft noise background */
+.noise {
+  background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+  opacity: 0.03;
+}
 </style>
 </head>
 
-<body>
+<body class="bg-black text-white antialiased">
 
-<!-- HEADER -->
-<header>
-    <h1>VEEJAY</h1>
-    <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+<!-- BACKGROUND -->
+<div class="fixed inset-0 noise pointer-events-none"></div>
+
+<!-- NAV -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-xl bg-black/60 border-b border-white/10">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-6 py-4">
+    <h1 class="text-sm tracking-[0.3em] font-light">VEEJAY</h1>
+
+    <nav class="hidden md:flex gap-8 text-sm text-gray-300">
+      <a href="#about" class="hover:text-white">About</a>
+      <a href="#skills" class="hover:text-white">Skills</a>
+      <a href="#projects" class="hover:text-white">Projects</a>
+      <a href="#contact" class="hover:text-white">Contact</a>
     </nav>
+  </div>
 </header>
 
 <!-- HERO -->
-<section class="hero">
+<section class="min-h-screen flex items-center justify-center px-6 pt-28">
+  <div class="max-w-4xl text-center reveal">
 
-    <div class="glow"></div>
+    <p class="text-gray-400 tracking-widest text-xs mb-4">VIRTUAL ASSISTANT • DEVELOPER</p>
 
-    <div class="hero-badge reveal">
-        <span class="dot"></span>
-        Available for Work
+    <h1 class="text-4xl md:text-6xl font-light leading-tight">
+      Building clean, modern <br>
+      digital experiences
+    </h1>
+
+    <p class="text-gray-400 mt-6 max-w-xl mx-auto">
+      I’m Veejay Lendio, a Virtual Assistant and aspiring Web Developer focused on building efficient systems and modern web interfaces.
+    </p>
+
+    <div class="mt-8 flex gap-4 justify-center">
+      <a href="#projects" class="px-6 py-3 bg-white text-black text-sm magnetic hover:scale-105 transition">
+        View Projects
+      </a>
+      <a href="#contact" class="px-6 py-3 border border-white/30 text-sm hover:bg-white hover:text-black transition">
+        Contact Me
+      </a>
     </div>
 
-    <!-- LEFT -->
-    <div class="hero-left reveal delay-1">
-        <h1>
-            Virtual Assistant &<br>
-            Project Manager<br>
-            based in Philippines
-        </h1>
+    <div class="mt-10 flex justify-center gap-6 text-gray-400 text-sm">
+      <span>LinkedIn</span>
+      <span>GitHub</span>
+      <span>Email</span>
     </div>
 
-    <!-- IMAGE -->
-    <div class="hero-image reveal delay-2">
-        <div class="image-frame">
-            <img src="487314295_9640886379267304_7662847697025553968_n.jpg" alt="Veejay">
-        </div>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="hero-right reveal delay-3">
-        <p>
-            Hi, I'm Veejay Lendio — a Virtual Assistant,
-            Project Manager, and aspiring Web Developer
-            focused on building efficient workflows and
-            delivering impactful solutions.
-        </p>
-
-        <a href="#about" class="hero-btn">
-            <span>→</span>
-            Explore My Work
-        </a>
-    </div>
-
-    <div class="hero-name">Veejay</div>
+  </div>
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-        I have gained valuable experience across multiple industries over the past few years, consistently excelling in each role.
+<section id="about" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-2xl font-light mb-10 reveal">About</h2>
+
+  <div class="grid md:grid-cols-2 gap-10 items-center">
+
+    <div class="reveal space-y-4 text-gray-300 leading-relaxed">
+      <p>
+        I have experience across multiple industries, consistently delivering results in project management and operations.
+      </p>
+      <p>
+        I focus on building structured workflows, automation, and modern web solutions as I transition deeper into development.
+      </p>
     </div>
+
+    <div class="reveal border border-white/10 p-6">
+      <p class="text-sm text-gray-400 mb-4">Core Skills</p>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-3 py-1 border border-white/20 text-xs">Project Management</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Web Dev</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Automation</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Critical Thinking</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
-    <h2 class="section-title">Skills</h2>
-    <div class="card">
-        <span class="tag">Project Management</span>
-        <span class="tag">Web Development</span>
-        <span class="tag">Time Management</span>
-        <span class="tag">Critical Thinking</span>
-        <span class="tag">Teamwork</span>
+<section id="skills" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-2xl font-light mb-10 reveal">Skills</h2>
+
+  <div class="grid md:grid-cols-3 gap-6">
+
+    <div class="p-6 border border-white/10 reveal hover:bg-white/5 transition">
+      <h3 class="mb-2">Frontend</h3>
+      <p class="text-gray-400 text-sm">HTML, CSS, Tailwind</p>
     </div>
+
+    <div class="p-6 border border-white/10 reveal hover:bg-white/5 transition">
+      <h3 class="mb-2">Backend</h3>
+      <p class="text-gray-400 text-sm">PHP, Laravel (learning)</p>
+    </div>
+
+    <div class="p-6 border border-white/10 reveal hover:bg-white/5 transition">
+      <h3 class="mb-2">Tools</h3>
+      <p class="text-gray-400 text-sm">GitHub, Notion, Automation</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-2xl font-light mb-10 reveal">Projects</h2>
+
+  <div class="grid md:grid-cols-2 gap-8">
+
+    <div class="border border-white/10 p-6 reveal hover:scale-[1.02] transition">
+      <div class="h-40 bg-white/5 mb-4"></div>
+      <h3 class="text-lg">Portfolio Website</h3>
+      <p class="text-gray-400 text-sm mt-2">Modern personal portfolio design</p>
+      <div class="mt-4 flex gap-3 text-xs">
+        <span class="border px-2 py-1">HTML</span>
+        <span class="border px-2 py-1">Tailwind</span>
+      </div>
+    </div>
+
+    <div class="border border-white/10 p-6 reveal hover:scale-[1.02] transition">
+      <div class="h-40 bg-white/5 mb-4"></div>
+      <h3 class="text-lg">Appointment System</h3>
+      <p class="text-gray-400 text-sm mt-2">PHP-based scheduling system</p>
+      <div class="mt-4 flex gap-3 text-xs">
+        <span class="border px-2 py-1">PHP</span>
+        <span class="border px-2 py-1">MySQL</span>
+      </div>
+    </div>
+
+  </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-    <h2 class="section-title">Experience</h2>
+<section class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-2xl font-light mb-10 reveal">Experience</h2>
 
-    <div class="card">
-        <b>Fame - Podcast Agency</b> (2023–2025)
-        <p>Project Manager</p>
+  <div class="space-y-6">
+
+    <div class="border-l border-white/20 pl-6 reveal">
+      <h3>Fame - Podcast Agency</h3>
+      <p class="text-gray-400 text-sm">Project Manager • 2023–2025</p>
     </div>
 
-    <div class="card">
-        <b>Automated E-Com IT Solution</b> (2019–2021)
-        <p>Operations Manager</p>
+    <div class="border-l border-white/20 pl-6 reveal">
+      <h3>Automated E-Com IT Solution</h3>
+      <p class="text-gray-400 text-sm">Operations Manager • 2019–2021</p>
     </div>
 
-    <div class="card">
-        <b>Projects Experts VA</b> (2022–2023)
-        <p>Operations Manager</p>
-    </div>
+  </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card">
-        📞 +63 935 866 5909<br>
-        📧 lendioveejay@gmail.com<br>
-        📍 Iligan City, Philippines
-    </div>
+<section id="contact" class="max-w-6xl mx-auto px-6 py-24">
+  <h2 class="text-2xl font-light mb-10 reveal">Contact</h2>
+
+  <div class="border border-white/10 p-8 reveal">
+    <p>Email: lendioveejay@gmail.com</p>
+    <p>Phone: +63 935 866 5909</p>
+    <p>Location: Iligan City, Philippines</p>
+  </div>
 </section>
 
 <!-- FOOTER -->
-<footer>
-    © 2026 Veejay Lendio • Modern Animated Portfolio
+<footer class="border-t border-white/10 py-10 text-center text-gray-500 text-sm">
+  © 2026 Veejay Lendio — Minimal Portfolio
 </footer>
 
 <script>
-const cards = document.querySelectorAll('.card');
-const reveals = document.querySelectorAll('.reveal');
+// intersection observer animations
+const items = document.querySelectorAll('.reveal');
 
 const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-        }
-    });
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
 }, { threshold: 0.15 });
 
-cards.forEach(c => observer.observe(c));
-reveals.forEach(r => observer.observe(r));
+items.forEach(el => observer.observe(el));
+
+// magnetic button effect
+document.querySelectorAll('.magnetic').forEach(btn => {
+  btn.addEventListener('mousemove', (e) => {
+    const rect = btn.getBoundingClientRect();
+    btn.style.transform = `translate(${(e.clientX - rect.left - rect.width/2)/10}px,
+                                    ${(e.clientY - rect.top - rect.height/2)/10}px)`;
+  });
+
+  btn.addEventListener('mouseleave', () => {
+    btn.style.transform = 'translate(0,0)';
+  });
+});
 </script>
 
 </body>
