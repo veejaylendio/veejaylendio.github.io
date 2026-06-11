@@ -97,16 +97,21 @@
         </div>
 
         <!-- Image Card -->
-        <div
-          class="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-3 hover:-translate-y-2 transition duration-500">
+        <div class="relative group">
 
-          <img
-            src="./487314295_9640886379267304_7662847697025553968_n.jpg"
-            alt="Veejay Lendio"
-            class="w-[350px] md:w-[450px] h-[500px] object-cover rounded-2xl"
-          />
+    <!-- Soft Glow -->
+    <div
+        class="absolute inset-0 bg-white/10 blur-[100px] scale-125 opacity-50">
+    </div>
 
-        </div>
+    <!-- Image -->
+    <img
+        src="./487314295_9640886379267304_7662847697025553968_n.jpg"
+        alt="Veejay Lendio"
+        class="relative z-10 w-[350px] md:w-[500px] object-contain transition duration-700 group-hover:scale-105"
+    >
+
+</div>
 
       </div>
     </div>
