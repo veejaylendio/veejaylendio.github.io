@@ -30,6 +30,237 @@
   background-image: url("https://www.transparenttextures.com/patterns/noise.png");
   opacity: 0.03;
 }
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    background: #050505;
+
+    display: grid;
+    grid-template-columns: 1fr 550px 1fr;
+
+    align-items: center;
+
+    padding: 120px 70px 40px;
+
+    overflow: hidden;
+}
+
+/* floating nav */
+
+.hero-nav {
+    position: absolute;
+    top: 40px;
+    left: 50px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 18px 28px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(15px);
+
+    z-index: 20;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.menu-btn {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* availability */
+
+.hero-badge {
+    position: absolute;
+
+    left: 70px;
+    top: 240px;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 20px;
+
+    border-radius: 999px;
+
+    background: rgba(255,255,255,.06);
+    backdrop-filter: blur(10px);
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #ff7a1a;
+}
+
+/* left content */
+
+.hero-left {
+    z-index: 10;
+}
+
+.hero-left h1 {
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1.05;
+    font-weight: 500;
+    max-width: 550px;
+}
+
+/* center image */
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    z-index: 10;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 950px;
+
+    object-fit: contain;
+
+    filter: drop-shadow(0 20px 50px rgba(0,0,0,.4));
+
+    transition: .5s ease;
+}
+
+.hero-image img:hover {
+    transform: translateY(-10px);
+}
+
+/* right content */
+
+.hero-right {
+    max-width: 380px;
+    justify-self: end;
+
+    z-index: 10;
+}
+
+.hero-right p {
+    color: #b5b5b5;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+/* orange button */
+
+.hero-btn {
+    margin-top: 30px;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 18px 30px;
+
+    border-radius: 999px;
+
+    background: #ff7a1a;
+    color: white;
+
+    text-decoration: none;
+    font-weight: 600;
+
+    transition: .3s ease;
+}
+
+.hero-btn:hover {
+    transform: translateY(-3px);
+}
+
+.hero-btn span {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 50%;
+
+    background: white;
+    color: #ff7a1a;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* giant name */
+
+.hero-name {
+    position: absolute;
+
+    bottom: -60px;
+    left: 40px;
+
+    font-size: clamp(8rem, 22vw, 20rem);
+
+    font-weight: 700;
+
+    color: rgba(255,255,255,.05);
+
+    line-height: 1;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+/* responsive */
+
+@media (max-width: 1200px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+
+        gap: 40px;
+        padding-top: 180px;
+    }
+
+    .hero-left,
+    .hero-right {
+        justify-self: center;
+    }
+
+    .hero-right {
+        max-width: 650px;
+    }
+
+    .hero-badge {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero-name {
+        font-size: 24vw;
+        left: 0;
+        bottom: 0;
+    }
+
+    .hero-image img {
+     width: 100%;
+     max-width: 950px;
+    }
+}
+
 </style>
 </head>
 
@@ -53,70 +284,48 @@
 </header>
 
 <!-- HERO -->
-<section class="min-h-screen flex items-center px-6 pt-28">
-  <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<section class="hero">
 
-    <!-- LEFT CONTENT -->
-    <div class="reveal">
-      <p class="text-gray-400 tracking-[0.3em] text-xs uppercase mb-4">
-        Virtual Assistant • Project Manager • Aspiring Web Developer
-      </p>
+    <!-- Left Content -->
+    <div class="hero-left">
+        <h1>
+            Web Developer<br>
+            based in Philippines
+        </h1>
+    </div>
 
-      <h1 class="text-5xl md:text-7xl font-light leading-tight">
-        Building clean,
-        modern digital
-        experiences.
-      </h1>
+    <!-- Center Image -->
+    <div class="hero-image">
 
-      <p class="text-gray-400 mt-8 max-w-xl text-lg leading-relaxed">
-        I'm Veejay Lendio, a Virtual Assistant and aspiring Web Developer
-        focused on creating efficient workflows, scalable systems, and
-        modern web experiences.
-      </p>
+        <img
+            src="veejay.png"
+            alt="Veejay Lendio"
+        >
 
-      <div class="mt-10 flex flex-wrap gap-4">
-        <a href="#projects"
-          class="px-6 py-3 bg-white text-black hover:scale-105 transition">
-          View Projects
+    </div>
+
+    <!-- Right Content -->
+    <div class="hero-right">
+
+        <p>
+            Hi, I'm Veejay Lendio — a Virtual Assistant,
+            Project Manager, SEO Specialist, and aspiring
+            Web Developer focused on building efficient
+            systems and delivering impactful results.
+        </p>
+
+        <a href="#about" class="hero-btn">
+            <span>→</span>
+            See My Work
         </a>
 
-        <a href="#contact"
-          class="px-6 py-3 border border-white/20 hover:bg-white hover:text-black transition">
-          Contact Me
-        </a>
-      </div>
     </div>
 
-    <!-- RIGHT IMAGE -->
-    <div class="reveal flex justify-center lg:justify-end">
-      <div class="relative">
-
-        <!-- Glow -->
-        <div
-          class="absolute inset-0 bg-white/10 blur-3xl rounded-full scale-110">
-        </div>
-
-        <!-- Image Card -->
-        <div class="relative group">
-
-    <!-- Soft Glow -->
-    <div
-        class="absolute inset-0 bg-white/10 blur-[100px] scale-125 opacity-50">
+    <!-- Giant Background Name -->
+    <div class="hero-name">
+        VEEJAY
     </div>
 
-    <!-- Image -->
-    <img
-        src="./veejay.png"
-        alt="Veejay Lendio"
-        class="relative z-10 w-[650px] max-w-none object-contain transition duration-700 group-hover:scale-105"
-    >
-
-</div>
-
-      </div>
-    </div>
-
-  </div>
 </section>
 
 <!-- ABOUT -->
@@ -137,10 +346,12 @@
     <div class="reveal border border-white/10 p-6">
       <p class="text-sm text-gray-400 mb-4">Core Skills</p>
       <div class="flex flex-wrap gap-2">
-        <span class="px-3 py-1 border border-white/20 text-xs">Project Management</span>
-        <span class="px-3 py-1 border border-white/20 text-xs">Web Dev</span>
-        <span class="px-3 py-1 border border-white/20 text-xs">Automation</span>
         <span class="px-3 py-1 border border-white/20 text-xs">Critical Thinking</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Problem Solving</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Collaboration & Teamwork</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Digital Literacy</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Time Management</span>
+        <span class="px-3 py-1 border border-white/20 text-xs">Organization</span>
       </div>
     </div>
 
@@ -160,12 +371,12 @@
 
     <div class="p-6 border border-white/10 reveal hover:bg-white/5 transition">
       <h3 class="mb-2">Backend</h3>
-      <p class="text-gray-400 text-sm">PHP, Laravel (learning)</p>
+      <p class="text-gray-400 text-sm">PHP, Laravel</p>
     </div>
 
     <div class="p-6 border border-white/10 reveal hover:bg-white/5 transition">
       <h3 class="mb-2">Tools</h3>
-      <p class="text-gray-400 text-sm">GitHub, Notion, Automation</p>
+      <p class="text-gray-400 text-sm">GitHub, Notion, Trello</p>
     </div>
 
   </div>
@@ -179,7 +390,7 @@
 
     <div class="border border-white/10 p-6 reveal hover:scale-[1.02] transition">
       <div class="h-40 bg-white/5 mb-4"></div>
-      <h3 class="text-lg">Portfolio Website</h3>
+      <h3 class="text-lg">SMS Blaster</h3>
       <p class="text-gray-400 text-sm mt-2">Modern personal portfolio design</p>
       <div class="mt-4 flex gap-3 text-xs">
         <span class="border px-2 py-1">HTML</span>
@@ -207,8 +418,18 @@
   <div class="space-y-6">
 
     <div class="border-l border-white/20 pl-6 reveal">
+      <h3>Peak Ranking Solutions</h3>
+      <p class="text-gray-400 text-sm">On-page SEO • May 2025–February 2026</p>
+    </div>
+    
+    <div class="border-l border-white/20 pl-6 reveal">
       <h3>Fame - Podcast Agency</h3>
       <p class="text-gray-400 text-sm">Project Manager • 2023–2025</p>
+    </div>
+
+    <div class="border-l border-white/20 pl-6 reveal">
+      <h3>Empire E-Com LLC</h3>
+      <p class="text-gray-400 text-sm">Customer Service • 2021–2022</p>
     </div>
 
     <div class="border-l border-white/20 pl-6 reveal">
